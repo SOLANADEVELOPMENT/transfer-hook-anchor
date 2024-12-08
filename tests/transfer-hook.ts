@@ -101,8 +101,9 @@ describe("transfer-hook", () => {
   // Create the two token accounts for the transfer-hook enabled mint
   // Fund the sender token account with 100 tokens
   it("Create Token Accounts and Mint Tokens", async () => {
-    // 100 tokens
-    const amount = 100 * 10 ** decimals;
+    // 21_000_000 tokens
+    const tokenSupply = 21_000_000;
+    const amount = tokenSupply * 10 ** decimals;
 
     const transaction = new Transaction().add(
       createAssociatedTokenAccountInstruction(
