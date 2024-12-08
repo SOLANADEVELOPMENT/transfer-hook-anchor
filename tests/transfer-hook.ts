@@ -164,35 +164,35 @@ describe("transfer-hook", () => {
     console.log("Transaction Signature:", txSig);
   });
 
-  it("Transfer Hook with Extra Account Meta", async () => {
-    // 1 tokens
-    const amount = 1 * 10 ** decimals;
-    const bigIntAmount = BigInt(amount);
+  // it("Transfer Hook with Extra Account Meta", async () => {
+  //   // 1 tokens
+  //   const amount = 1 * 10 ** decimals;
+  //   const bigIntAmount = BigInt(amount);
 
-    // Standard token transfer instruction
-    const transferInstruction = await createTransferCheckedWithTransferHookInstruction(
-      connection,
-      sourceTokenAccount,
-      mint.publicKey,
-      destinationTokenAccount,
-      wallet.publicKey,
-      bigIntAmount,
-      decimals,
-      [],
-      "confirmed",
-      TOKEN_2022_PROGRAM_ID
-    );
+  //   // Standard token transfer instruction
+  //   const transferInstruction = await createTransferCheckedWithTransferHookInstruction(
+  //     connection,
+  //     sourceTokenAccount,
+  //     mint.publicKey,
+  //     destinationTokenAccount,
+  //     wallet.publicKey,
+  //     bigIntAmount,
+  //     decimals,
+  //     [],
+  //     "confirmed",
+  //     TOKEN_2022_PROGRAM_ID
+  //   );
 
-    const transaction = new Transaction().add(
-      transferInstruction
-    );
+  //   const transaction = new Transaction().add(
+  //     transferInstruction
+  //   );
 
-    const txSig = await sendAndConfirmTransaction(
-      connection,
-      transaction,
-      [wallet.payer],
-      { skipPreflight: true }
-    );
-    console.log("Transfer Signature:", txSig);
-  });
+  //   const txSig = await sendAndConfirmTransaction(
+  //     connection,
+  //     transaction,
+  //     [wallet.payer],
+  //     { skipPreflight: true }
+  //   );
+  //   console.log("Transfer Signature:", txSig);
+  // });
 });

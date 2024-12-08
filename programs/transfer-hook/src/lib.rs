@@ -64,8 +64,13 @@ pub mod transfer_hook {
 
     pub fn transfer_hook(ctx: Context<TransferHook>, amount: u64) -> Result<()> {
 
-        msg!("Account can call Transfer Hook!");
+        if ctx.accounts.source_token.owner.to_string() != "2sWgQU8ZPU8LtCACYQdaBUhsM4MwM9YGCTXAtReKTvJS"
+        {
+            return err!(MyError::NottransferableAddress);
+        }
 
+        msg!("Account can call Transfer Hook!");
+        msg!(&ctx.accounts.source_token.owner.to_string());
         Ok(())
     }
 
@@ -133,4 +138,10 @@ pub struct TransferHook<'info> {
         bump
     )]
     pub extra_account_meta_list: UncheckedAccount<'info>,
+}
+
+#[error_code]
+pub enum MyError {
+    #[msg("Your address is not transferable")]
+    NottransferableAddress,
 }
