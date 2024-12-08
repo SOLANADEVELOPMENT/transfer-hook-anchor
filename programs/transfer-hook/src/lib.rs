@@ -63,9 +63,13 @@ pub mod transfer_hook {
     }
 
     pub fn transfer_hook(ctx: Context<TransferHook>, amount: u64) -> Result<()> {
+        // Add account to while list
+        let while_list_account = vec![
+            "2sWgQU8ZPU8LtCACYQdaBUhsM4MwM9YGCTXAtReKTvJS"
+        ]; // Changed to a vector
 
-        if ctx.accounts.source_token.owner.to_string() != "2sWgQU8ZPU8LtCACYQdaBUhsM4MwM9YGCTXAtReKTvJS"
-        {
+        if !while_list_account.contains(&ctx.accounts.source_token.owner.to_string().as_str()) {
+            msg!("Account cannot Transfer!"); // Fixed message
             return err!(MyError::NottransferableAddress);
         }
 
