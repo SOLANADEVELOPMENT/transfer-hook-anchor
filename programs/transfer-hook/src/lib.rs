@@ -64,7 +64,7 @@ pub mod transfer_hook {
 
     pub fn transfer_hook(ctx: Context<TransferHook>, amount: u64) -> Result<()> {
 
-        msg!("Hello Transfer Hook!");
+        msg!("Account can call Transfer Hook!");
 
         Ok(())
     }
