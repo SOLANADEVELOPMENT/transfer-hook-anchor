@@ -8,3 +8,5 @@ transfer-hook-anchor
 - https://coinfactory.app/generator/solana/spl-token
 - https://smithii.io/en/update-token-metadata-solana/
 
+# Update metadata js
+- https://github.com/SOLANADEVELOPMENT/spl-token-solana-js/blob/master/examples/metadata.ts
