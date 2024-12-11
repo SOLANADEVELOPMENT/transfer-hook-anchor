@@ -140,6 +140,8 @@ describe("transfer-hook", () => {
     );
 
     console.log(`Transaction Signature: ${txSig}`);
+    // console.log(`Transaction: https://explorer.solana.com/address/${txSig}?cluster=devnet`);
+    console.log(`Mint address: https://explorer.solana.com/address/${mint.publicKey.toBase58()}?cluster=devnet`);
   });
 
   // Account to store extra accounts required by the transfer hook instruction
